@@ -26,7 +26,7 @@ def find_compuzonelink(url):
         print("error")
 
 
-def main():
+def qsz_parse():
     lastnum_file = open("lastnum", "r")
     today_file = open("today", "w")
     last_num = int(lastnum_file.read())
@@ -59,4 +59,4 @@ def main():
     else:
         print(qc_response.status_code)
 
-main()
+qsz_parse()
