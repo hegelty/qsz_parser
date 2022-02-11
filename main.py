@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 output_file = open("output.txt", "w")
+output_file2 = open("output2.txt", "w")
 
 
 def find_compuzonelink(id):
@@ -18,6 +19,7 @@ def find_compuzonelink(id):
             title = clsoup.find(class_="title pr-0").text.strip()
             print(title)
             output_file.write(f'<a href="{url}">칼럼 보러가기 : {title}<br></a>{str(clhref)}<br>')
+            output_file2.write(f'{str(clhref)}<br>')
 
     else:
         print("error")
@@ -25,7 +27,7 @@ def find_compuzonelink(id):
 
 def qsz_parse():
     qc_url = "https://quasarzone.com/bbs/qc_qsz?page="
-    for i in range(1,30):
+    for i in range(1,2):
         qc_response = requests.get(qc_url+str(i))
 
         if qc_response.status_code == 200:
